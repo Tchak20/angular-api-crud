@@ -6,14 +6,21 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <h2 class="mb-4">Connexion</h2>
-        <form name="form" #LoginForm="ngForm">
+        <form name="form" #LoginForm="ngForm" (ngSubmit)="LoginForm.valid && onSubmit()">
           <div class="form-group">
             <label for="username">Nom d'utilisateur ou Email</label>
-            <input type="text" class="form-control" [(ngModel)]="form.email" #email="ngModel" id="email" placeholder="Entrez votre email" required>
+            <input type="text" name="email" class="form-control" [(ngModel)]="form.email" #email="ngModel" id="email" placeholder="Entrez votre email" required>
+            <div class="text-danger" style="font-size: x-small;" *ngIf="email.errors && LoginForm.submitted">
+                Veuillez entrer votre  email.
+              </div>
           </div>
           <div class="form-group">
             <label for="password">Mot de passe</label>
-            <input type="password" class="form-control" [(ngModel)]="form.password" #password="ngModel" id="password" placeholder="Entrez votre mot de passe" required>
+            <input type="password" name="password" class="form-control" [(ngModel)]="form.password" #password="ngModel" id="password" placeholder="Entrez votre mot de passe" required minlength="5">
+            <div class="text-danger" style="font-size: x-small;" *ngIf="password.errors && LoginForm.submitted">
+            <div  *ngIf="password.errors['required']">Veuillez entrer votre password.</div>
+            <div *ngIf="password.errors['minlength']">Password doit contenu au moins 5 caractère.</div>
+        </div>
           </div>
           <button type="submit" class="btn btn-primary">Se connecter</button>
         </form>
