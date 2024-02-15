@@ -1,6 +1,11 @@
-<div class="">
-    side menu
-</div>
-<div class="admin-container">
-    <router-outlet></router-outlet>
-</div>
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <app-sidemenu></app-sidemenu>
+    </nav>
+  
+    <!-- Content -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>

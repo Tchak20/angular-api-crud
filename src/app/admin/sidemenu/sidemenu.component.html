@@ -1,1 +1,35 @@
-<p>sidemenu works!</p>
+<div class="sidebar-sticky bg-dark text-white">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              Accueil
+            </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" [routerLink]="['dashboard']">
+          Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" id="reportsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Users
+        </a>
+        <div class="dropdown-menu" aria-labelledby="reportsDropdown">
+          <a class="dropdown-item" [routerLink]="['user']">List</a>
+          <a class="dropdown-item" [routerLink]="['user/add']">Ajouter</a>
+          <a class="dropdown-item" routerLink="['user/edit/1']">Edit</a>
+          <a class="dropdown-item" href="#">Delete</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" id="reportsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Cocktails
+        </a>
+        <div class="dropdown-menu" aria-labelledby="reportsDropdown">
+            <a class="dropdown-item" [routerLink]="['cocktail']">List</a>
+            <a class="dropdown-item" [routerLink]="['cocktail/add']">Ajouter</a>
+            <a class="dropdown-item" [routerLink]="['cocktail/edit/12']">Editer</a>
+        </div>
+      </li>
+    </ul>
+  </div>

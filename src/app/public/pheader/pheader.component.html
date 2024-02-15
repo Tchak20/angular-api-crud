@@ -1,20 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-primary bg-info">
-    <a class="navbar-brand" href="#">Mon Site</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand text-light" href="#">Mon Site</a>
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse text-light" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item ">
-          <a class="nav-link" [routerLink]="['home']">Accueil</a>
+          <a class="nav-link text-light" [routerLink]="['home']">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['cocktail']">Cocktail</a>
+          <a class="nav-link text-light" [routerLink]="['cocktail']">Cocktail</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['contact']">Contact</a>
+          <a class="nav-link text-light" [routerLink]="['contact']">Contact</a>
         </li>
       </ul>
-      <a class="nav-link" [routerLink]="['admin']">Admin</a>
     </div>
+    <a class="nav-link text-light" [routerLink]="['admin']">Admin</a>
   </nav>
