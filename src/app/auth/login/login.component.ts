@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ICredential } from 'src/app/_interfaces/credential';
 import { AuthService } from 'src/app/_services/auth.service';
-
-
+import { TokenService } from 'src/app/_services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -17,13 +16,18 @@ export class LoginComponent implements OnInit{
     password: ''
   }
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService
+    ,private tokenService: TokenService
+    ){}
   ngOnInit(): void { }
 
   onSubmit(){
     console.log(this.form)
     this.authService.login(this.form).subscribe(
-      data => console.log(data.acces_token),
+      data => {
+        console.log(data.access_token),
+        this.tokenService.saveToken(data.access_token)
+        },
       err => console.log(err)
     )
   }
