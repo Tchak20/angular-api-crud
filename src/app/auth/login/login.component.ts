@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ICredential } from 'src/app/_interfaces/credential';
 import { AuthService } from 'src/app/_services/auth.service';
+
+
 
 @Component({
   selector: 'app-login',
@@ -9,21 +12,19 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class LoginComponent implements OnInit{
 
-  form = {
-    email: null,
-    password: null
+  form: ICredential = {
+    email: '',
+    password: ''
   }
 
   constructor(private authService: AuthService){}
-  ngOnInit(): void {
-      
-  }
+  ngOnInit(): void { }
 
   onSubmit(){
     console.log(this.form)
     this.authService.login(this.form).subscribe(
-      (data:any) => console.log(data.acces_token),
-      (err:any) => console.log(err)
+      data => console.log(data.acces_token),
+      err => console.log(err)
     )
   }
 }
