@@ -8,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UIndexComponent implements OnInit{
 
+  userList: any[] = []
+
   constructor(private http: HttpClient){}
   ngOnInit(): void {
       this.http.get('http://flp-api.francecentral.cloudapp.azure.com/users').subscribe(
-        data => console.log(data),
-        err => console.log(err)
+        (users: any) => {
+          console.log(users)
+          this.userList = users.data
+        }
       )
   }
 
