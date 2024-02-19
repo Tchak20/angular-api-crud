@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './_utils/error/error.component';
+import { TokenInterceptorProvider } from './_helper/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { ErrorComponent } from './_utils/error/error.component';
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [TokenInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

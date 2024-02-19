@@ -13,8 +13,17 @@ export class TokenService {
     this.router.navigate(['admin'])
   }
 
+  clearToken(){
+    localStorage.removeItem('token')
+    this.router.navigate([''])
+  }
+
   isLogged(): boolean{
     const token = localStorage.getItem('token')
     return !!token
+  }
+
+  getToken(){
+    return localStorage.getItem('token')
   }
 }

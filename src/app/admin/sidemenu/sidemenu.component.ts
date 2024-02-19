@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/_services/token.service';
 
 @Component({
   selector: 'app-sidemenu',
   templateUrl: './sidemenu.component.html',
   styleUrls: ['./sidemenu.component.css']
 })
-export class SidemenuComponent {
+export class SidemenuComponent implements OnInit{
 
+  constructor(private tokenService: TokenService){}
+  ngOnInit(): void {}
+  logout(){
+    this.tokenService.clearToken()
+  }
 }
