@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,13 +9,31 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UEditComponent implements OnInit{
 
-  constructor(private activated: ActivatedRoute){}
+  user: any = {
+    id: 0,
+    nom: "",
+    prenom: "",
+    pseudo: "",
+    email: "",
+    password: "",
+    createdAt: "",
+    updatedAt: "",
+    deletedAt: null
+  }
+
+  constructor(private activated: ActivatedRoute
+    ,private http: HttpClient){}
   ngOnInit(): void {
-      this.activated.params.subscribe(
-        (data) =>{
+      let uid = this.activated.snapshot.paramMap.get('id')
+      this.http.get('http://flp-api.francecentral.cloudapp.azure.com/users/'+uid).subscribe(
+        (data:any) => {
           console.log(data)
-        }
-      )
+          this.user = data.data
+        })
+  }
+
+  onSubmit(){
+    console.log(this.user)
   }
 
 }
