@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { IUser } from 'src/app/_interfaces/user';
+import { UserService } from 'src/app/_services/user.service';
 
 @Component({
   selector: 'app-u-index',
@@ -8,12 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UIndexComponent implements OnInit{
 
-  userList: any[] = []
+  userList: IUser[] = []
 
-  constructor(private http: HttpClient){}
+  constructor(private userService: UserService){}
   ngOnInit(): void {
-      this.http.get('http://flp-api.francecentral.cloudapp.azure.com/users').subscribe(
-        (users: any) => {
+      this.userService.getAllUser().subscribe(
+        users => {
           console.log(users)
           this.userList = users.data
         }
