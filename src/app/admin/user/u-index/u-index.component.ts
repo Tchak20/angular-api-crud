@@ -22,4 +22,30 @@ export class UIndexComponent implements OnInit{
       )
   }
 
+  trash(id:number){
+    console.log(id)
+    this.userService.trashUser(id).subscribe(
+      data => {console.log(data)
+        this.ngOnInit()
+      }
+    )
+  }
+
+  untrash(id:number){
+    console.log(id)
+    this.userService.untrashUser(id).subscribe(
+      data => {console.log(data)
+        this.ngOnInit()
+      }
+    )
+  }
+
+  delete(id:number){
+    console.log(id)
+    this.userService.deleteUser(id).subscribe(
+      data => {console.log(data)
+        this.ngOnInit()
+      }
+    )
+  }
 }

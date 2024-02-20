@@ -1,1 +1,24 @@
-<p>c-add works!</p>
+<div class="container mt-4">
+    <h2>Formulaire d'ajout</h2>
+  
+    <form name="f" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+        <div class="form-group">
+            <label for="editName">User</label>
+            <input type="number" class="form-control" id="editName"  name="user_id" [(ngModel)]="cocktail.user_id" #user_id="ngModel">
+          </div>
+        <div class="form-group">
+        <label for="editName">Nom</label>
+        <input type="text" class="form-control" id="editName" placeholder="Nom" name="nom" [(ngModel)]="cocktail.nom" #nom="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="editDescription">Description</label>
+        <textarea class="form-control" id="editDescription" placeholder="Description de l'élément" name="description" [(ngModel)]="cocktail.description" #description="ngModel"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="editDescription">Recette</label>
+        <textarea class="form-control" id="editRecette" placeholder="Recette" name="recette" [(ngModel)]="cocktail.recette" #recette="ngModel"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+    </form>
+  
+  </div>
